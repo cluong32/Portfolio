@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap');
+
+/* ═══════════════════════════════════════════════════════
+   CATPPUCCIN MOCHA — IDE PORTFOLIO THEME
+   ═══════════════════════════════════════════════════════ */
+
+:root {
+  /* Palette */
+  --bg:      #1e1e2e;
+  --mantle:  #181825;
+  --crust:   #11111b;
+  --s0:      #313244;
+  --s1:      #45475a;
+  --s2:      #585b70;
+  --ov0:     #6c7086;
+  --ov1:     #7f849c;
+  --sub0:    #a6adc8;
+  --sub1:    #bac2de;
+  --text:    #cdd6f4;
+  --lav:     #b4befe;
+  --blue:    #89b4fa;
+  --sapp:    #74c7ec;
+  --teal:    #94e2d5;
+  --green:   #a6e3a1;
+  --yellow:  #f9e2af;
+  --peach:   #fab387;
+  --red:     #f38ba8;
+  --mauve:   #cba6f7;
+  --pink:    #f5c2e7;
+
+  /* Layout */
+  --gutter:   3.5rem;
+  --nav-h:    71px;
+  --status-h: 22px;
+  --pad:      clamp(2rem, 5vw, 4rem);
+  --font:     'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+}
+
+/* ─── Reset ─── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ─── Status bar (VS Code bottom bar) ─── */
+body::after {
+  content: '\2387  main\00a0\00a0\00a0\2713  0 errors\00a0\00a0\00a0UTF-8\00a0\00a0\00a0TypeScript React\00a0\00a0\00a0Ln 1, Col 1\00a0\00a0\00a0Spaces: 2';
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--status-h);
+  line-height: var(--status-h);
+  background: var(--blue);
+  color: var(--crust);
+  font-size: 11px;
+  padding: 0 16px;
+  z-index: 1000;
+  letter-spacing: 0.03em;
+}
+
+/* ─── Root container ─── */
+#root {
+  padding-bottom: var(--status-h);
+  min-height: 100vh;
+  position: relative;
+}
+
+/* ─── Line-number gutter strip ─── */
+#root::before {
+  content: '';
+  position: fixed;
+  left: 0;
+  top: var(--nav-h);
+  bottom: var(--status-h);
+  width: var(--gutter);
+  background: var(--bg);
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar       { width: 10px; }
+::-webkit-scrollbar-track { background: var(--mantle); }
+::-webkit-scrollbar-thumb { background: var(--s1); border-radius: 6px; border: 2px solid var(--mantle); }
+::-webkit-scrollbar-thumb:hover { background: var(--s2); }
+
+/* ─── Selection ─── */
+::selection { background: var(--s1); color: var(--text); }
+
+/* ─── Anchor base ─── */
+a { text-decoration: none; }
+
+/* ═══════════════════════════════════════════════════════
+   HERO — syntax-highlighted code block
+   Visual output:  const name = "Hi! I'm Carter";
+                   // I am a Software Engineer...
+   ═══════════════════════════════════════════════════════ */
+
+h1 {
+  font-family: var(--font);
+  font-size: clamp(1.2rem, 2.8vw, 1.8rem);
+  font-weight: 400;
+  color: var(--sapp);           /* string literal color */
+  padding: 5.5rem var(--pad) 0.6rem var(--pad);
+  line-height: 1.6;
+  word-break: break-word;
+}
+
+h2 {
+  font-family: var(--font);
+  font-size: clamp(0.72rem, 1.4vw, 0.88rem);
+  font-weight: 400;
+  color: var(--ov1);             /* comment color */
+  padding: 0.3rem var(--pad) 2.8rem var(--pad);
+  line-height: 1.9;
+}
+
+/* blinking cursor at end of comment */
+h2::after {
+  content: '\00a0\258B';
+  color: var(--blue);
+  animation: cursor-blink 1.2s step-start infinite;
+  display: inline-block;
+  transform: translateY(-1.7px);
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   BUTTONS — Resume + Contact (inline action row)
+   ═══════════════════════════════════════════════════════ */
+
+/* BUTTONS */
+
+.interact-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+
+  width: fit-content;
+  margin: 2rem auto 3rem auto;
+}
+
+/* makes Resume link hitbox only fit the visible button */
+.interact-buttons > a {
+  display: inline-flex;
+  width: fit-content;
+  height: fit-content;
+}
+
+.button,
+#popup-button {
+  font-family: var(--font);
+  font-size: 0.78rem;
+  font-weight: 400;
+  padding: 6px 18px;
+  margin: 0;
+
+  border: 1px solid var(--s2);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--sub0);
+
+  cursor: pointer;
+  letter-spacing: 0.04em;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  vertical-align: middle;
+}
+
+.button:hover,
+#popup-button:hover {
+  background: var(--s0);
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+/* Contact button sits inline next to Resume */
+#popup-container {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTIONS — file content areas
+   ═══════════════════════════════════════════════════════ */
+
+section {
+  padding: 4rem var(--pad);
+  border-top: 1px solid var(--s0);
+  min-height: 220px;
+  position: relative;
+  scroll-margin-top: var(--nav-h);
+}
+
+/* JSDoc file-header comment per section */
+section::before {
+  display: block;
+  font-family: var(--font);
+  font-size: 0.72rem;
+  color: var(--ov0);
+  margin-bottom: 2rem;
+  letter-spacing: 0.04em;
+  line-height: 1.8;
+}
+
+/* ═══════════════════════════════════════════════════════
+   ACTIVE-LINE HIGHLIGHT — subtle row glow on h1
+   ═══════════════════════════════════════════════════════ */
+
+h1 {
+  width: fit-content;
+  margin: 5.5rem auto 0.6rem auto;
+  padding: 0.6rem 1.2rem;
+
+  background: linear-gradient(
+    90deg,
+    rgba(49, 50, 68, 0.25) 0%,
+    rgba(49, 50, 68, 0.08) 100%
+  );
+
+  border-left: 2px solid var(--blue);
+}
+
+.code-keyword {
+  color: var(--mauve);
+}
+
+.code-string {
+  color: var(--sapp);
+}
+
+.about-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* terminal + bmo row */
+.about-top {
+  display: flex;
+  align-items: flex-end;
+  gap: 2rem;
+}
+
+.about-pfp {
+  width: min(700px, 75%);
+}
+
+.about-bmo {
+  width: 250px;
+  height: auto;
+  align-self: center;
+}
+
+/* smiski + paragraph row */
+.about-bottom {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+
+  margin-top: 2.5rem;
+}
+
+.about-smiski {
+  width: 140px;
+  flex-shrink: 0;
+}
+
+.about-text {
+  margin: 0;
+
+  color: var(--text);
+  font-family: var(--font);
+
+  font-size: 1.05rem;
+  line-height: 1.8;
+}

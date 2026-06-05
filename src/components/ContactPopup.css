@@ -1,0 +1,229 @@
+/* ═══════════════════════════════════════════════════════
+   CONTACT POPUP — VS Code panel / notification modal
+   Requires CSS variables from App.css (:root)
+   ═══════════════════════════════════════════════════════ */
+
+/* ─── Trigger button ─── */
+#popup-button {
+  font-family: var(--font);
+  font-size: 0.78rem;
+  font-weight: 400;
+  padding: 6px 18px;
+  border: 1px solid var(--s2);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--sub0);
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  vertical-align: middle;
+}
+
+#popup-button:hover {
+  background: var(--s0);
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+#popup-button:hover::before { color: var(--lav); }
+
+/* ═══════════════════════════════════════════════════════
+   OVERLAY
+   ═══════════════════════════════════════════════════════ */
+
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 500;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+/* ═══════════════════════════════════════════════════════
+   MODAL WINDOW — VS Code panel aesthetics
+   ═══════════════════════════════════════════════════════ */
+
+.popup-window {
+  background: var(--mantle);
+  border: 1px solid var(--s1);
+  border-radius: 6px;
+  width: min(480px, 90vw);
+  overflow: hidden;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.4),
+    0 16px 48px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+  animation: popup-slide-in 0.18s cubic-bezier(0.2, 0, 0.3, 1);
+}
+
+@keyframes popup-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ─── Panel title bar ─── */
+.popup-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  height: 36px;
+  background: var(--crust);
+  border-bottom: 1px solid var(--s0);
+  gap: 12px;
+}
+
+/* Terminal-dot accent on the left of the header */
+.popup-header::before {
+  content: '\25CF';
+  font-size: 10px;
+  color: var(--mauve);
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+.popup-header h2 {
+  font-family: var(--font) !important;
+  font-size: 0.72rem !important;
+  font-weight: 400 !important;
+  color: var(--sub0) !important;
+  letter-spacing: 0.06em !important;
+  /* Strip the App.css h2 code-comment styles */
+  padding: 0 !important;
+  margin: 0 !important;
+  background: none !important;
+  border: none !important;
+  flex: 1;
+}
+
+.popup-header h2::before { content: none !important; }
+.popup-header h2::after  { content: none !important; }
+
+/* Close button */
+.popup-header > button {
+  font-family: var(--font);
+  font-size: 18px;
+  line-height: 1;
+  background: none;
+  border: none;
+  color: var(--ov0);
+  cursor: pointer;
+  padding: 3px 5px;
+  border-radius: 3px;
+  transition: color 0.1s, background 0.1s;
+  flex-shrink: 0;
+}
+
+.popup-header > button:hover {
+  color: var(--red);
+  background: rgba(243, 139, 168, 0.12);
+}
+
+/* ═══════════════════════════════════════════════════════
+   FORM
+   ═══════════════════════════════════════════════════════ */
+
+#email-form {
+  padding: 22px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ── Field label hints via placeholder-based styling ── */
+#email-form input,
+#email-form textarea {
+  font-family: var(--font);
+  font-size: 0.8rem;
+  line-height: 1.6;
+  background: var(--bg);
+  border: 1px solid var(--s0);
+  border-radius: 3px;
+  color: var(--text);
+  padding: 8px 12px;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.15s ease, background 0.15s ease;
+  -webkit-appearance: none;
+}
+
+#email-form input::placeholder,
+#email-form textarea::placeholder {
+  color: var(--ov0);
+  font-style: italic;
+}
+
+#email-form input:hover,
+#email-form textarea:hover {
+  border-color: var(--s2);
+}
+
+#email-form input:focus,
+#email-form textarea:focus {
+  border-color: var(--blue);
+  background: rgba(137, 180, 250, 0.04);  /* very subtle blue tint on focus */
+  box-shadow: 0 0 0 2px rgba(137, 180, 250, 0.12);
+}
+
+#email-form textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+/* ── Submit button ── */
+#email-form button[type="submit"] {
+  font-family: var(--font);
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 8px 22px;
+  background: var(--blue);
+  color: var(--crust);
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  align-self: flex-end;
+  letter-spacing: 0.04em;
+  transition: opacity 0.12s ease, transform 0.1s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#email-form button[type="submit"]::before {
+  content: '\27A4';    /* ➤ send arrow */
+  font-size: 0.7rem;
+}
+
+#email-form button[type="submit"]:hover  { opacity: 0.85; }
+#email-form button[type="submit"]:active { transform: scale(0.97); }
+
+/* ── Status message (Sending... / Success / Error) ── */
+#email-form p {
+  font-family: var(--font);
+  font-size: 0.75rem;
+  text-align: center;
+  padding: 4px 0 0;
+  color: var(--green);
+  animation: fade-in 0.2s ease;
+}
+
+/* Show red if message contains "Failed" — CSS trick via color on parent */
+/* Note: actual error coloring requires a className added in TSX */
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

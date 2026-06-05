@@ -1,0 +1,175 @@
+.education-section {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.education-timeline {
+  position: relative;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 2rem;
+
+  margin-top: 4rem;
+  padding: 1rem 2rem 0;
+}
+
+.education-line {
+  position: absolute;
+  top: 1.4rem;
+  left: 10%;
+  right: 10%;
+
+  height: 2px;
+
+  background: linear-gradient(
+    90deg,
+    var(--sapp),
+    var(--mauve),
+    var(--blue)
+  );
+
+  opacity: 0.8;
+}
+
+.education-item {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  flex: 1;
+}
+
+.education-dot {
+  width: 18px;
+  height: 18px;
+
+  border-radius: 50%;
+
+  background: var(--bg);
+  border: 3px solid var(--blue);
+
+  box-shadow: 0 0 18px rgba(137, 180, 250, 0.45);
+
+  margin-bottom: 2rem;
+}
+
+.highschool .education-dot {
+  border-color: var(--sapp);
+}
+
+.college .education-dot {
+  border-color: var(--mauve);
+}
+
+.education-card {
+  width: 100%;
+  max-width: 420px;
+
+  padding: 1.5rem;
+
+  background: rgba(24, 24, 37, 0.75);
+
+  border: 1px solid var(--s1);
+  border-radius: 18px;
+
+  text-align: center;
+
+  transition:
+    transform 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.education-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--blue);
+  box-shadow: 0 0 24px rgba(137, 180, 250, 0.18);
+}
+
+.education-date {
+  display: block;
+
+  margin-bottom: 0.75rem;
+
+  color: var(--ov1);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.education-card h3 {
+  color: var(--sapp);
+  font-size: 1.1rem;
+  margin-bottom: 0.6rem;
+}
+
+.education-card p {
+  color: var(--sub0);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 800px) {
+  .education-timeline {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2rem;
+  }
+
+  .education-line {
+    top: 0;
+    bottom: 0;
+    left: 1rem;
+    right: auto;
+
+    width: 2px;
+    height: auto;
+  }
+
+  .education-item {
+    align-items: flex-start;
+    padding-left: 3rem;
+  }
+
+  .education-dot {
+    position: absolute;
+    left: 0.45rem;
+    margin-bottom: 0;
+  }
+
+  .education-card {
+    max-width: none;
+    text-align: left;
+  }
+}
+
+.ksu .education-dot {
+  border-color: var(--yellow);
+}
+
+.ksu .education-card h3 {
+  color: var(--yellow);
+}
+
+.education-note {
+  display: inline-block;
+
+  margin-top: 0.75rem;
+  padding: 0.3rem 0.75rem;
+
+  border-radius: 999px;
+
+  font-size: 0.75rem;
+
+  color: var(--yellow);
+
+  border: 1px solid rgba(249, 226, 175, 0.4);
+
+  background: rgba(249, 226, 175, 0.08);
+}

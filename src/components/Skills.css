@@ -1,0 +1,165 @@
+.section-title {
+  width: fit-content;
+
+  margin: 0 auto 3rem auto;
+
+  padding: 0.6rem 1.2rem;
+
+  color: var(--sapp);
+
+  background: linear-gradient(
+    90deg,
+    rgba(49, 50, 68, 0.25) 0%,
+    rgba(49, 50, 68, 0.08) 100%
+  );
+
+  border-left: 2px solid var(--blue);
+}
+
+.skills-section {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.skills-tree {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.skills-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+
+  gap: 2rem;
+  width: min(100%, 1100px);
+  margin: 0 auto;
+}
+
+.skill-category {
+  background: rgba(24, 24, 37, 0.75);
+
+  border: 1px solid var(--s1);
+  border-radius: 18px;
+
+  padding: 2rem;
+  min-height: 360px;
+
+  transition:
+    transform 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.skill-category:hover {
+  transform: translateY(-4px);
+
+  border-color: var(--blue);
+
+  box-shadow:
+    0 0 24px rgba(137, 180, 250, 0.18);
+}
+
+.languages {
+  border-color: var(--blue);
+}
+
+.development {
+  border-color: var(--mauve);
+}
+
+.cs {
+  border-color: var(--sapp);
+}
+
+.category-icon {
+  text-align: center;
+
+  font-size: 2rem;
+
+  margin-bottom: 1rem;
+}
+
+.languages .category-icon {
+  color: var(--blue);
+}
+
+.development .category-icon {
+  color: var(--mauve);
+}
+
+.cs .category-icon {
+  color: var(--sapp);
+}
+
+.skill-category h3 {
+  text-align: center;
+
+  margin-bottom: 1.5rem;
+
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.languages h3 {
+  color: var(--blue);
+}
+
+.development h3 {
+  color: var(--mauve);
+}
+
+.cs h3 {
+  color: var(--sapp);
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-content: center;
+
+  gap: 0.75rem;
+}
+
+.skill-tags span {
+  padding: 0.45rem 0.9rem;
+
+  border-radius: 8px;
+
+  border: 1px solid var(--s1);
+
+  background: rgba(49, 50, 68, 0.45);
+
+  color: var(--sub0);
+
+  font-size: 0.8rem;
+
+  transition: all 0.15s ease;
+}
+
+.skill-tags span:hover {
+  border-color: var(--blue);
+  color: var(--text);
+
+  transform: translateY(-2px);
+}
+
+@media (max-width: 800px) {
+  .skills-columns {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+}
+
+.math {
+  border-color: var(--yellow);
+}
+
+.math .category-icon {
+  color: var(--yellow);
+}
+
+.math h3 {
+  color: var(--yellow);
+}
