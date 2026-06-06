@@ -69,7 +69,16 @@ function App() {
 
           <div className='about-bottom'>
             <img src='src/assets/smiski.png' alt='smiski' className='about-smiski' />
-            <p className='about-text'>My name is Carter Luong, and I am a student at Georgia Tech. I am extremely interested in technology and problem solving. Currently pursuing a Bachelor of Computer Science, and I'm proud of my mathematical abilities and proficiency in programming languages. Learning new programming languages is an interesting and everlasting endeavour that I intend to continue. Outside of academia, I am well-traveled and have explored more than a dozen countries across Asia, Europe, and the Americas. I am extremely grateful for the opportunities that I had at a young age, and this has built my appreciation for different cultures and lifestyles across the globe. In my free time, I enjoy playing piano, video games, and challenging myself to learn new skills.</p>
+            <p className='about-text'>
+              My name is Carter Luong, and I am a student at Georgia Tech pursuing a Bachelor of Science in Computer Science. I am extremely interested 
+              in technology, problem solving, and continuous learning. I am proud of my mathematical abilities and proficiency in a variety of programming languages. 
+              Exploring new technologies and learning new programming languages is a challenge that I find rewarding and enduring, and it is something that I plan to continue throughout my career. 
+              <br />
+              Outside of academia, I am well-traveled and have explored more than a dozen countries across Asia, Europe, and the Americas. 
+              I am extremely grateful for the opportunities that I had at a young age, and this has built my appreciation for different 
+              cultures and lifestyles across the globe. In my free time, I enjoy playing piano, video games, and challenging myself to 
+              learn new skills.
+            </p>
           </div>
         </div>
       </section>

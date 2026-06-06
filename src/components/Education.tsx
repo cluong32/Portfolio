@@ -18,6 +18,10 @@ function Education() {
               <p className='education-gpa'>
                 GPA: 3.96 / 4.0
               </p>
+
+              <p className='education-note'>
+                Dual-Enrolled @ KSU for Senior Year
+              </p>
             </div>
           </div>
 
