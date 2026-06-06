@@ -1,8 +1,12 @@
 import './App.css'
 import { useRef, useEffect } from 'react';
-import Resume from './assets/Resume.pdf';
 import { Download } from 'lucide-react';
 import { animate, scrambleText } from 'animejs';
+
+import Resume from './assets/Resume.pdf';
+import BMO from './assets/bmo.png';
+import Smiski from './assets/smiski.png';
+import Terminal from './assets/terminal.png';
 
 import ContactPopup from './components/ContactPopup';
 import NavBar from './components/NavBar';
@@ -63,12 +67,12 @@ function App() {
         <h1 className='section-title'>About</h1>
         <div className='about-container'>
           <div className='about-top'>
-            <img src='src/assets/terminal.png' alt='terminal-pfp' className='about-pfp'/>
-            <img src='src/assets/bmo.png' alt='bmo' className='about-bmo' />
+            <img src={Terminal} alt='terminal-pfp' className='about-pfp'/>
+            <img src={BMO} alt='bmo' className='about-bmo' />
           </div>
 
           <div className='about-bottom'>
-            <img src='src/assets/smiski.png' alt='smiski' className='about-smiski' />
+            <img src={Smiski} alt='smiski' className='about-smiski' />
             <p className='about-text'>
               My name is Carter Luong, and I am a student at Georgia Tech pursuing a Bachelor of Science in Computer Science. I am extremely interested 
               in technology, problem solving, and continuous learning. I am proud of my mathematical abilities and proficiency in a variety of programming languages. 
